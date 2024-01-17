@@ -1,10 +1,9 @@
 "use client";
-
 import HeroComponent from "@/components/hero";
 
 export default function Home() {
   return (
-    <main>
+    <main  className="bg-white">
       <HeroComponent />
     </main>
   );
