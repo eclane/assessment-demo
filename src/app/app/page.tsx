@@ -1,22 +1,15 @@
 "use client";
 
 import HeaderComponent from "@/components/header";
-import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import LoadingComponent from "@/components/loading";
+import { signOut, useSession } from "next-auth/react";
 import UsersComponent from "@/components/users";
 import { fetchAlbums, fetchUsers } from "@/utils/data";
+import { toast } from "sonner";
 
 export default function Application() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  // State for users with album count
   const [users, setUsers] = useState<UserWithAlbumCount[]>([]);
-  const [error, setError] = useState("");
 
-  // Inside your component
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,9 +22,9 @@ export default function Application() {
         setUsers(usersWithAlbumCount);
       } catch (error: unknown) {
         if (error instanceof Error) {
-          setError(error.message);
+          toast.error(error.message);
         } else {
-          setError("An unexpected error occurred");
+          toast.error("An unexpected error occurred");
         }
       }
     };
@@ -39,7 +32,6 @@ export default function Application() {
     fetchData();
   }, []);
 
-  // Function to map albums to users and count them
   const mapAlbumsToUsers = (
     users: User[],
     albums: Album[]
@@ -49,16 +41,6 @@ export default function Application() {
       albumCount: albums.filter((album) => album.userId === user.id).length,
     }));
   };
-
-  useEffect(() => {
-    // If the user is not authenticated, redirect them to the sign-in page
-    if (status === "loading") return; // Do nothing while loading
-    if (status === "unauthenticated") router.push("/");
-  }, [status, router]);
-
-  if (status === "loading") {
-    return <LoadingComponent />;
-  }
 
   return (
     <main className="bg-white">

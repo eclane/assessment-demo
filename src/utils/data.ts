@@ -31,3 +31,32 @@ export const fetchAlbums = async () => {
         }
     }
 };
+
+export const fetchSingleUser = async ({ id }: { id: string }) => {
+    try {
+        const response = await instance.get('/users/' + id);
+        console.log(response.data);
+        return response.data;
+    } catch (error: unknown) {
+        if (axios.isAxiosError(error)) {
+            throw new Error(error.message);
+        } else {
+            throw new Error('An unknown error occurred');
+        }
+    }
+};
+
+
+export const fetchAlbumsPerUser = async ({ userId }: { userId: string }) => {
+    try {
+        const response = await instance.get('/albums?userId=' + userId);
+        console.log(response.data);
+        return response.data;
+    } catch (error: unknown) {
+        if (axios.isAxiosError(error)) {
+            throw new Error(error.message);
+        } else {
+            throw new Error('An unknown error occurred');
+        }
+    }
+};

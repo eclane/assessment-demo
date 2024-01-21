@@ -1,13 +1,19 @@
-export default function UsersComponent({ users }: { users: any }) {
+import Link from "next/link";
+
+export default function UsersComponent({
+  users,
+}: {
+  users: UserWithAlbumCount[];
+}) {
   return (
     <section className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
         {users.length > 0
-          ? users.map((user: any) => (
-              <a
+          ? users.map((user: UserWithAlbumCount) => (
+              <Link
                 key={user.id}
                 className="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                href="#"
+                href={`/app/user/${user.id.toString()}`}
               >
                 <span className="inline-block rounded-full bg-gray-50">
                   <img
@@ -22,7 +28,7 @@ export default function UsersComponent({ users }: { users: any }) {
                 <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
                   Has a total of {user.albumCount} albums
                 </p>
-              </a>
+              </Link>
             ))
           : Array(10)
               .fill(0)

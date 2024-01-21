@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { signIn, signOut, useSession } from "next-auth/react";
-import Google from "next-auth/providers/google";
+import { signIn } from "next-auth/react";
+import * as animationData from "../../public/eyes.json";
+import Lottie from "react-lottie";
+import { defaultOptions } from "@/utils/helpers";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -10,7 +12,6 @@ const navigation = [
   { name: "Marketplace", href: "#" },
   { name: "Company", href: "#" },
 ];
-
 export default function HeroComponent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,10 +25,10 @@ export default function HeroComponent() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
+              <Lottie
+                options={defaultOptions(animationData)}
+                height={60}
+                width={60}
               />
             </a>
           </div>
@@ -72,10 +73,10 @@ export default function HeroComponent() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
+                <Lottie
+                  options={defaultOptions(animationData)}
+                  height={60}
+                  width={60}
                 />
               </a>
               <button
@@ -120,7 +121,7 @@ export default function HeroComponent() {
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ed6818] to-[#f29b66] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
                 "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
@@ -131,7 +132,7 @@ export default function HeroComponent() {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Announcing our next round of funding.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
+              <a href="#" className="font-semibold text-primary">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Read more <span aria-hidden="true">&rarr;</span>
               </a>
@@ -148,45 +149,33 @@ export default function HeroComponent() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                onClick={() => signIn("google", { callbackUrl: "/home" })}
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer flex items-center gap-x-2"
+                onClick={() => signIn("google", { callbackUrl: "/app" })}
+                className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary cursor-pointer flex items-center gap-x-2"
               >
                 <span aria-hidden="true">
                   <svg
+                    className="h-4 w-4"
+                    fill="#fff"
+                    height="200px"
+                    width="200px"
+                    version="1.1"
+                    id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 48 48"
-                    className="h-4 w-4"
+                    viewBox="0 0 210 210"
+                    xmlSpace="preserve"
+                    stroke="#fff"
                   >
-                    <defs>
-                      <path
-                        id="a"
-                        d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
-                      />
-                    </defs>
-                    <clipPath id="b">
-                      <use xlinkHref="#a" overflow="visible" />
-                    </clipPath>
-                    <path
-                      clipPath="url(#b)"
-                      fill="#FBBC05"
-                      d="M0 37V11l17 13z"
-                    />
-                    <path
-                      clipPath="url(#b)"
-                      fill="#EA4335"
-                      d="M0 11l17 13 7-6.1L48 14V0H0z"
-                    />
-                    <path
-                      clipPath="url(#b)"
-                      fill="#34A853"
-                      d="M0 37l30-23 7.9 1L48 0v48H0z"
-                    />
-                    <path
-                      clipPath="url(#b)"
-                      fill="#4285F4"
-                      d="M48 48L17 24l-4-3 35-10z"
-                    />
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      {" "}
+                      <path d="M0,105C0,47.103,47.103,0,105,0c23.383,0,45.515,7.523,64.004,21.756l-24.4,31.696C133.172,44.652,119.477,40,105,40 c-35.841,0-65,29.159-65,65s29.159,65,65,65c28.867,0,53.398-18.913,61.852-45H105V85h105v20c0,57.897-47.103,105-105,105 S0,162.897,0,105z"></path>{" "}
+                    </g>
                   </svg>
                 </span>
                 Continue with Google
@@ -205,7 +194,7 @@ export default function HeroComponent() {
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ed6818] to-[#f29b66] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
                 "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
