@@ -1,8 +1,6 @@
 "use client";
-
-import HeaderComponent from "@/components/header";
 import { useEffect, useState } from "react";
-import { signOut, useSession } from "next-auth/react";
+
 import UsersComponent from "@/components/users";
 import { fetchAlbums, fetchUsers } from "@/utils/data";
 import { toast } from "sonner";
@@ -44,7 +42,6 @@ export default function Application() {
 
   return (
     <main className="bg-white">
-      <HeaderComponent signOut={signOut} useSession={useSession} />
       <UsersComponent users={users} />
     </main>
   );

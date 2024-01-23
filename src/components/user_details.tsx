@@ -1,4 +1,5 @@
 import UserPageSkeleton from "@/skeletons/user_page";
+import Link from "next/link";
 
 export default function UserDetailsComponent({
   userDetails,
@@ -66,15 +67,16 @@ export default function UserDetailsComponent({
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-6 mt-5">
           {userAlbums?.length ?? 0 > 0
             ? userAlbums?.map((album: Album) => (
-                <div
+                <Link
                   key={album.id}
                   className="block rounded-xl p-4 bg-[#f1f5f9]"
+                  href={`/app/album/${album.id}`}
                 >
                   <img src="/album.png" alt="" className="h-16 w-16" />
                   <h2 className="text-sm font-semibold leading-6 text-gray-900 mt-4">
                     {album.title}
                   </h2>
-                </div>
+                </Link>
               ))
             : Array(6)
                 .fill(0)

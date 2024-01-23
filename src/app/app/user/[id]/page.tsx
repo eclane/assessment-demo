@@ -1,8 +1,6 @@
 "use client";
-import HeaderComponent from "@/components/header";
 import UserDetailsComponent from "@/components/user_details";
 import { fetchAlbumsPerUser, fetchSingleUser } from "@/utils/data";
-import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -34,7 +32,6 @@ export default function UserPage({ params }: { params: { id: string } }) {
 
   return (
     <main className="bg-white">
-      <HeaderComponent signOut={signOut} useSession={useSession} />
       <UserDetailsComponent
         userDetails={singleUser}
         userAlbums={singleUserAlbums}
