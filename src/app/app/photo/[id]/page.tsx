@@ -10,10 +10,13 @@ export default function PhotoPage({ params }: { params: { id: string } }) {
   const [title, setTitle] = useState<string>("");
   const [updateLoading, setUpdateLoading] = useState<boolean>(false);
 
+  //Toggling the edit mode
   const toggleEditMode = () => {
     setEditMode(!editMode);
   };
 
+
+  //Fetching the single photo
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,9 +34,12 @@ export default function PhotoPage({ params }: { params: { id: string } }) {
       }
     };
 
+    //Calling the fetchData function
     fetchData();
   }, [params.id]);
 
+
+  //Editing the photo title
   const handleTitleChange = async () => {
     setUpdateLoading(true);
     try {

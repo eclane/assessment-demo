@@ -8,6 +8,7 @@ import { toast } from "sonner";
 export default function Application() {
   const [users, setUsers] = useState<UserWithAlbumCount[]>([]);
 
+  //Fetching users and albums data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,9 +28,11 @@ export default function Application() {
       }
     };
 
+    //Calling the fetchData function
     fetchData();
   }, []);
 
+  //Mapping the albums to the users
   const mapAlbumsToUsers = (
     users: User[],
     albums: Album[]

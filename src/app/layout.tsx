@@ -5,6 +5,8 @@ import Providers from "@/providers/session";
 import { Toaster } from "sonner";
 import NextTopLoader from "nextjs-toploader";
 
+
+// Importing the Inter font
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

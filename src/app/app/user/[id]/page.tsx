@@ -8,6 +8,8 @@ export default function UserPage({ params }: { params: { id: string } }) {
   const [singleUser, setSingleUser] = useState<User>();
   const [singleUserAlbums, setSingleUserAlbums] = useState<Album[]>([]);
 
+
+  //Fetching the single user and their albums
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,6 +29,7 @@ export default function UserPage({ params }: { params: { id: string } }) {
       }
     };
 
+    //Calling the fetchData function
     fetchData();
   }, [params.id]);
 

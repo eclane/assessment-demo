@@ -16,7 +16,7 @@ export default function HeaderComponent({
             </h1>
 
             <p className="mt-1.5 text-sm text-gray-500">
-              Let's write a new blog post! 🎉
+              Let&apos;s get you some Interesting Data! 🎉
             </p>
           </div>
 

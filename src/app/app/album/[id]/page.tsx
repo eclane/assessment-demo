@@ -8,6 +8,8 @@ export default function AlbumPage({ params }: { params: { id: string } }) {
   const [singleAlbum, setSingleAlbum] = useState<Album>();
   const [singleAlbumPhotos, setSingleAlbumPhotos] = useState<Photo[]>([]);
 
+
+  //Fetching the single album and its photos
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,6 +31,7 @@ export default function AlbumPage({ params }: { params: { id: string } }) {
       }
     };
 
+    //Calling the fetchData function
     fetchData();
   }, [params.id]);
 
