@@ -58,7 +58,7 @@ export default function HeroComponent() {
               href="#"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Log in <span aria-hidden="true">&rarr;</span>
+              Sign Up <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -140,12 +140,12 @@ export default function HeroComponent() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Data to enrich your online business
+              User Management with Macho Inc.
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              Manage user data securely with Macho Inc. From photos to albums to
+              user details. Login using your Google account and start get
+              started today. No credit card required.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a

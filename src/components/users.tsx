@@ -7,6 +7,7 @@ export default function UsersComponent({
 }) {
   return (
     <section className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <h1 className="text-2xl font-bold mb-4">Users</h1>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
         {users.length > 0
           ? users.map((user: UserWithAlbumCount) => (

@@ -47,7 +47,7 @@ export default function PhotoDetailsComponent({
                   editMode ? handleTitleChange() : toggleEditMode()
                 }
               >
-                {editMode ? "Save" : "Edit"}
+                {loading ? "Loading" : editMode ? "Save" : "Edit"}
               </button>
             </div>
 
